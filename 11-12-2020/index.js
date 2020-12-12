@@ -1,3 +1,14 @@
-import { testandoExemplo1, testandoExemplo2 } from './atividade.js';
+import {
+  testandoExemplo1,
+  testandoExemplo2,
+  novoExemploPromise,
+} from './atividade.js';
 
-testandoExemplo2();
+console.log('**Inicio teste meu exemplo: ');
+novoExemploPromise();
+
+// console.log('**Inicio teste do exemplo 2: ');
+// testandoExemplo2();
+
+// console.log('**Inicio teste do exemplo 1: ');
+// testandoExemplo1();

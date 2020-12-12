@@ -1,5 +1,7 @@
 import fetch from 'node-fetch';
+import fs from 'promise-fs';
 
+//slide - 40
 const testandoExemplo1 = () => {
   function fazRequisicao() {
     return new Promise((resolve, reject) => {
@@ -17,6 +19,7 @@ const testandoExemplo1 = () => {
   console.log('Fazendo o meu teste');
 };
 
+//slide - 41
 const testandoExemplo2 = () => {
   let cepBuscado;
   console.log('Buscando Cep');
@@ -25,6 +28,16 @@ const testandoExemplo2 = () => {
   console.log(`Cep encontrado: ${cepBuscado}`);
 };
 
+//meu exemplo de promise
+const novoExemploPromise = () => {
+  fs.readFile('./text.txt')
+    .then((content) => String(content))
+    .then((stringContent) => stringContent.split(/\n/g))
+    .then((arrayContent) => console.log(arrayContent))
+    .catch((err) => console.log(err));
+};
+
+//Função que faz o fetch - slide 41
 function buscarCep(parametro) {
   let cep;
   fetch(`https://viacep.com.br/ws/${parametro}/json/`)
@@ -37,4 +50,4 @@ function buscarCep(parametro) {
   return cep;
 }
 
-export { testandoExemplo1, testandoExemplo2 };
+export { testandoExemplo1, testandoExemplo2, novoExemploPromise };
