@@ -33,8 +33,32 @@ const novoExemploPromise = () => {
   fs.readFile('./text.txt')
     .then((content) => String(content))
     .then((stringContent) => stringContent.split(/\n/g))
+    /*.then pode receber 2 funções:
+      1 - lidar com a resolved
+      2 - lidar com a rejected
+      Portanto se meu .then ou na resolução da promise eu tiver um err eu posso usar o .then
+      para "capturar" o error
+      Ex:
+      .then(
+        (arrayContent) => console.log(arrayContent),
+        (err) => console.log(err.message)
+      )
+    */
     .then((arrayContent) => console.log(arrayContent))
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err.message))
+    /* .catch é um .then(null, lidarComOError)
+       Ex:
+      .then(null, (err) => {
+        console.log(err.message);
+      })
+    */
+    /* .then após .catch ou .then que "lida" com o error será executado sempre, "meio que um .finally"
+      Ex:
+      .then(() => console.log('Não importa o que aconteça eu vou ser chamado'));
+     */
+    .finally(() =>
+      console.log('Não importa o que aconteça eu vou ser chamado')
+    );
 };
 
 //Função que faz o fetch - slide 41
