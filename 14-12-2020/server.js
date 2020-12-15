@@ -4,13 +4,17 @@ const app = express();
 
 const ObjectId = require('mongodb').ObjectID;
 const MongoClient = require('mongodb').MongoClient;
-const uri = 'url para o banco';
+const { DB_URI } = require('./helpers/config');
 
-MongoClient.connect(uri, (err, client) => {
-  if (err) return console.log(err);
-  db = client.db('nome do seu banco');
-  app.listen(3000, () => console.log('servidor rodando na porta 3000'));
-});
+MongoClient.connect(
+  DB_URI,
+  { useUnifiedTopology: true, useNewUrlParser: true },
+  (err, client) => {
+    if (err) return console.log(err);
+    db = client.db('treinamentoDb');
+    app.listen(3000, () => console.log('servidor rodando na porta 3000'));
+  }
+);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view egine', 'ejs');
