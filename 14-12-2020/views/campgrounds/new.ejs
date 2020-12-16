@@ -1,0 +1,21 @@
+<%- include("../partials/header") %> 
+<div class="container">
+    <div>
+        <form action="/campground" method="POST">
+            <div class="input-group">
+                <input class="form-control" type="text" name="name" id="" placeholder="Name...">
+            </div>
+            <div class="input-group">
+                <input class="form-control" type="text" name="image" id="" placeholder="Image url...">
+            </div>
+            <div class="input-group">
+                <input class="form-control" type="text" name="description" id="" placeholder="Description...">
+            </div>
+            <div class="input-group">
+                <button class="btn btn-lg btn-primary btn-block">Submit</button>
+            </div>
+        </form>
+        <a href="/campground">Go Back!</a>
+    </div>
+</div>
+<%- include("../partials/footer") %>
