@@ -104,6 +104,10 @@ class Cronometro extends React.Component {
     this.timer = setInterval(() => this.count(), 10);
   }
 
+  componentWillUnmount(){
+    clearInterval(this.timer);
+  }
+  
   render() {
     const { minutos, segundos, horas, centesimos, partial } = this.state;
     const timer = fullTimer(centesimos, segundos, minutos, horas);
