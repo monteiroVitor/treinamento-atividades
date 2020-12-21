@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.container {
+  margin: 2rem auto;
+  width: fit-content;
+}
+
+.container h1 {
+  color: #545c61;
+  font-size: 4rem;
+}
+
+.timer {
+  font-size: 3rem;
+  color: hsl(205, 78%, 60%);
+  text-align: center;
+}
+
+.partial {
+  width: 30%;
+  height: 250px;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 15px;
+  overflow: auto;
+}
+
+.partial h2 {
+  text-align: center;
+  color: #545c61;
+}
+
+.partial ul li {
+  margin-top: 0.5rem;
+  list-style-type: none;
+  padding-left: 7.6rem;
+}
+
+.btn {
+  display: inline-block;
+  background: hsl(205, 78%, 60%);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  border-color: transparent;
+  text-transform: capitalize;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  margin-top: 2rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.btn:hover {
+  background: hsl(205, 86%, 17%);
+  color: hsl(205, 78%, 60%);
+}
