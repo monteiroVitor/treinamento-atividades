@@ -23,15 +23,22 @@ const Cronometro = () => {
   const count = () => {
     if (isTicking) {
       setTimer((state) => {
-        const { minutos, segundos, centesimos } = state;
-        if (centesimos > 99)
-          setTimer({ ...state, segundos: state.segundos + 1, centesimos: 0 });
-        if (segundos > 59)
-          setTimer({ ...state, minutos: state.minutos + 1, segundos: 0 });
-        if (minutos > 59)
-          setTimer({ ...state, horas: state.horas + 1, minutos: 0 });
-
-        return { ...state, centesimos: state.centesimos + 1 };
+        let { minutos, segundos, centesimos, horas } = state;
+        if (centesimos > 99){
+          segundos += 1;
+          centesimos = 0;
+        }
+        if(segundos > 59){
+          minutos += 1;
+          segundos = 0;
+        }
+        if(minutos > 59){
+          horas += 1;
+          minutos = 0;
+        }
+        
+        centesimos += 1;
+        return {centesimos, minutos, segundos, horas}
       });
     }
   };
