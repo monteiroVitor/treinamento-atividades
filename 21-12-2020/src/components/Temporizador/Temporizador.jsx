@@ -8,6 +8,7 @@ import { getHours, getMinutes, getSeconds } from "../../helpers/getTimer";
 
 function Temporizador() {
   const [timer, setTimer] = useState(initialValueTimer);
+  const [message, setMessage] = useState('');
   const [isTicking, setIsTicking] = useState(false);
   const [isFormShowing, setIsformShowing] = useState(true);
 
@@ -17,14 +18,27 @@ function Temporizador() {
 
   const countdown = () => {
     if (isTicking) {
-      if (timer.segundos < 1 && timer.minutos !== 0)
-        setTimer({ ...timer, segundos: 60, minutos: timer.minutos - 1 });
+      setTimer(state => {
+        let {minutos, segundos, horas} = state;
 
-      if (timer.minutos < 1 && timer.horas !== 0)
-        setTimer({ ...timer, minutos: 60, horas: timer.horas - 1 });
-
-      if (timer.segundos > 0)
-        setTimer({ ...timer, segundos: timer.segundos - 1 });
+        if(segundos < 1 && minutos !== 0) {
+          segundos = 60;
+          minutos -= 1;
+        }
+        
+        if(minutos < 1 && horas !== 0){
+          minutos = 60;
+          horas -= 1;
+        }
+        
+        if(!segundos && !minutos && !horas){
+          setMessage('Time is Over');
+          return {minutos,segundos,horas};
+        }
+        
+        segundos -= 1;
+        return {minutos, segundos,horas};
+      })
     }
   };
 
